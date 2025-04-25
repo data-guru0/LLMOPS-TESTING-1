@@ -3,7 +3,7 @@ pipeline{
 
     environment {
         AWS_REGION = 'us-east-1'
-        ECR_REPO = 'lllmops-repo'
+        ECR_REPO = 'llmops-repo'
         IMAGE_TAG = 'latest'
 	}
 
@@ -13,6 +13,24 @@ pipeline{
                 script{
                     echo 'Cloning Github repo to Jenkins............'
                     checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'github-token', url: 'https://github.com/data-guru0/LLMOPS-TESTING-1.git']])
+                }
+            }
+        }
+
+    stage('Build and Push Docker Image to ECR') {
+            steps {
+                withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', credentialsId: 'aws-token']]) {
+                    script {
+                        def accountId = sh(script: "aws sts get-caller-identity --query Account --output text", returnStdout: true).trim()
+                        def ecrUrl = "${accountId}.dkr.ecr.${env.AWS_REGION}.amazonaws.com/${env.ECR_REPO}"
+
+                        sh """
+                        aws ecr get-login-password --region ${AWS_REGION} | docker login --username AWS --password-stdin ${ecrUrl}
+                        docker build -t ${env.ECR_REPO}:${IMAGE_TAG} .
+                        docker tag ${env.ECR_REPO}:${IMAGE_TAG} ${ecrUrl}:${IMAGE_TAG}
+                        docker push ${ecrUrl}:${IMAGE_TAG}
+                        """
+                    }
                 }
             }
         }
