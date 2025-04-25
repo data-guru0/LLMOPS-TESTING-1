@@ -1,0 +1,83 @@
+2025-04-22 18:34:02,683 - INFO - Starting backend service...
+2025-04-22 18:34:04,692 - INFO - Starting frontend service...
+2025-04-22 18:34:26,476 - INFO - Sending request to backend with model: llama-3.3-70b-versatile
+2025-04-22 18:34:26,505 - INFO - Received request for model: llama-3.3-70b-versatile
+2025-04-22 18:34:26,659 - ERROR - Exception occurred while generating response
+Traceback (most recent call last):
+  File "D:\LLMOPS\LLMOPS-1\app\backend\api.py", line 29, in chat_endpoint
+    response = get_response_from_ai_agent(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\LLMOPS\LLMOPS-1\app\core\ai_agent.py", line 9, in get_response_from_ai_agent
+    llm = ChatGroq(model=llm_id)
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\LLMOPS\LLMOPS-1\venv\Lib\site-packages\langchain_core\load\serializable.py", line 130, in __init__
+    super().__init__(*args, **kwargs)
+  File "D:\LLMOPS\LLMOPS-1\venv\Lib\site-packages\pydantic\main.py", line 253, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\LLMOPS\LLMOPS-1\venv\Lib\site-packages\langchain_groq\chat_models.py", line 411, in validate_environment
+    self.client = groq.Groq(
+                  ^^^^^^^^^^
+  File "D:\LLMOPS\LLMOPS-1\venv\Lib\site-packages\groq\_client.py", line 84, in __init__
+    raise GroqError(
+groq.GroqError: The api_key client option must be set either by passing api_key to the client or by setting the GROQ_API_KEY environment variable
+2025-04-22 18:34:26,667 - ERROR - Backend returned error: 500 - {"detail":"Failed to get AI response | Error: The api_key client option must be set either by passing api_key to the client or by setting the GROQ_API_KEY environment variable | File: D:\\LLMOPS\\LLMOPS-1\\app\\backend\\api.py | Line: 29"}
+2025-04-22 18:35:26,103 - INFO - Sending request to backend with model: llama-3.3-70b-versatile
+2025-04-22 18:35:26,110 - INFO - Received request for model: llama-3.3-70b-versatile
+2025-04-22 18:35:26,110 - ERROR - Exception occurred while generating response
+Traceback (most recent call last):
+  File "D:\LLMOPS\LLMOPS-1\app\backend\api.py", line 29, in chat_endpoint
+    response = get_response_from_ai_agent(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\LLMOPS\LLMOPS-1\app\core\ai_agent.py", line 9, in get_response_from_ai_agent
+    llm = ChatGroq(model=llm_id)
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\LLMOPS\LLMOPS-1\venv\Lib\site-packages\langchain_core\load\serializable.py", line 130, in __init__
+    super().__init__(*args, **kwargs)
+  File "D:\LLMOPS\LLMOPS-1\venv\Lib\site-packages\pydantic\main.py", line 253, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\LLMOPS\LLMOPS-1\venv\Lib\site-packages\langchain_groq\chat_models.py", line 411, in validate_environment
+    self.client = groq.Groq(
+                  ^^^^^^^^^^
+  File "D:\LLMOPS\LLMOPS-1\venv\Lib\site-packages\groq\_client.py", line 84, in __init__
+    raise GroqError(
+groq.GroqError: The api_key client option must be set either by passing api_key to the client or by setting the GROQ_API_KEY environment variable
+2025-04-22 18:35:26,121 - ERROR - Backend returned error: 500 - {"detail":"Failed to get AI response | Error: The api_key client option must be set either by passing api_key to the client or by setting the GROQ_API_KEY environment variable | File: D:\\LLMOPS\\LLMOPS-1\\app\\backend\\api.py | Line: 29"}
+2025-04-22 18:36:33,384 - ERROR - Frontend failed to start: Command '['streamlit', 'run', 'app/frontend/ui.py']' returned non-zero exit status 3221225786.
+2025-04-22 18:37:28,298 - INFO - Starting backend service...
+2025-04-22 18:37:30,313 - INFO - Starting frontend service...
+2025-04-22 18:37:53,756 - INFO - Sending request to backend with model: llama-3.3-70b-versatile
+2025-04-22 18:37:53,787 - INFO - Received request for model: llama-3.3-70b-versatile
+2025-04-22 18:37:55,608 - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-04-22 18:37:55,630 - INFO - Successfully got response from AI agent for model: llama-3.3-70b-versatile
+2025-04-22 18:37:55,632 - INFO - Successfully received response from backend
+2025-04-22 18:38:15,272 - INFO - Sending request to backend with model: llama-3.3-70b-versatile
+2025-04-22 18:38:15,288 - INFO - Received request for model: llama-3.3-70b-versatile
+2025-04-22 18:38:16,903 - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-04-22 18:38:16,903 - INFO - Successfully got response from AI agent for model: llama-3.3-70b-versatile
+2025-04-22 18:38:16,903 - INFO - Successfully received response from backend
+2025-04-22 18:38:23,600 - INFO - Sending request to backend with model: llama-3.3-70b-versatile
+2025-04-22 18:38:23,606 - INFO - Received request for model: llama-3.3-70b-versatile
+2025-04-22 18:38:25,104 - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-04-22 18:38:30,978 - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-04-22 18:38:30,978 - INFO - Successfully got response from AI agent for model: llama-3.3-70b-versatile
+2025-04-22 18:38:30,984 - INFO - Successfully received response from backend
+2025-04-22 18:39:09,781 - ERROR - Frontend failed to start: Command '['streamlit', 'run', 'app/frontend/ui.py']' returned non-zero exit status 3221225786.
+2025-04-22 18:39:09,781 - ERROR - CustomException occurred: Frontend service failed to start | Error: Command '['streamlit', 'run', 'app/frontend/ui.py']' returned non-zero exit status 3221225786. | File: D:\LLMOPS\LLMOPS-1\app\main.py | Line: 24
+Traceback (most recent call last):
+  File "D:\LLMOPS\LLMOPS-1\app\main.py", line 24, in run_frontend
+    subprocess.run(["streamlit", "run", "app/frontend/ui.py"], check=True)
+  File "C:\Python312\Lib\subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['streamlit', 'run', 'app/frontend/ui.py']' returned non-zero exit status 3221225786.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\LLMOPS\LLMOPS-1\app\main.py", line 33, in <module>
+    run_frontend()
+  File "D:\LLMOPS\LLMOPS-1\app\main.py", line 27, in run_frontend
+    raise CustomException("Frontend service failed to start", error_detail=e)
+app.common.custom_exception.CustomException: Frontend service failed to start | Error: Command '['streamlit', 'run', 'app/frontend/ui.py']' returned non-zero exit status 3221225786. | File: D:\LLMOPS\LLMOPS-1\app\main.py | Line: 24
+2025-04-22 18:39:09,807 - ERROR - Backend failed to start: Command '['uvicorn', 'app.backend.api:app', '--host', '127.0.0.1', '--port', '9999']' returned non-zero exit status 3221225786.
