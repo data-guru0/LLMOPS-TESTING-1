@@ -34,6 +34,22 @@ pipeline{
                 }
             }
         }
+
+        stage('Deploy to ECS Fargate') {
+    steps {
+        withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', credentialsId: 'aws-token']]) {
+            script {
+                sh """
+                aws ecs update-service \
+                  --cluster llmops-clusters \
+                  --service llmops-defination-service-u6cfdml5 \
+                  --force-new-deployment \
+                  --region ${AWS_REGION}
+                """
+                }
+            }
+        }
+     }
         
     }
 }
