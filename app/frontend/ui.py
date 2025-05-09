@@ -5,14 +5,13 @@ from app.config.settings import settings
 from app.common.logger import get_logger
 from app.common.custom_exception import CustomException
 
-# Initialize logger
 logger = get_logger(__name__)
 
-# Streamlit UI setup
+
 st.set_page_config(page_title="LangGraph Agent UI", layout="centered")
 st.title("Groq-based AI Chatbot Agent")
 
-# Inputs
+
 system_prompt = st.text_area("Define your AI Agent: ", height=70)
 selected_model = st.selectbox("Select Groq Model:", settings.ALLOWED_MODEL_NAMES)
 allow_web_search = st.checkbox("Allow Web Search")
@@ -20,7 +19,7 @@ user_query = st.text_area("Enter your query: ", height=150)
 
 API_URL = "http://127.0.0.1:9999/chat"
 
-# Button logic
+
 if st.button("Ask Agent!") and user_query.strip():
     payload = {
         "model_name": selected_model,

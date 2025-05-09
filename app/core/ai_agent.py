@@ -1,4 +1,3 @@
-# app/core/ai_agent.py
 from langchain_groq import ChatGroq
 from langchain_community.tools.tavily_search import TavilySearchResults
 from langgraph.prebuilt import create_react_agent
